@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image'
 import styles from './page.module.css'
 
@@ -38,10 +39,14 @@ export default function Home() {
           priority
         />
       </div>
-
+      <button onClick={ async () => {
+        const data =  await fetch('  http://localhost:3000/api/agreement')
+      }}>
+        CULOOOO
+      </button>
       <div className={styles.grid}>
         <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href=""
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"

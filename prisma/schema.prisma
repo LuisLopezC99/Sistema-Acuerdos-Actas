@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model tab_session{
+  id   Int                   @id @default(autoincrement())
+  session_date DateTime      @default(now())
+  report String              @unique
+  session_type String
+  facebook_link String
+  agreements tab_agreement[]
+}
+
+model tab_agreement {
+  id   Int                   @id @default(autoincrement())
+  agreement_topic String
+  asigned_to String
+  deadline DateTime           @default(now())
+  session    tab_session @relation(fields: [session_id], references: [id])
+  session_id Int
+  agreement_state String        
+  agreement_id String           @unique         
+}
+
