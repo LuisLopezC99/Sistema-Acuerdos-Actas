@@ -11,9 +11,9 @@ const Header = () => {
     return (
         <Navbar style={grayBackground} variant="dark" expand="lg">
             <Container>
-                <Navbar.Brand>
-                    <img width={100} height={100} src="icons/logo.png" alt="Logo" style={{ marginLeft: '-250px' }} />
-                    <p className="texto1 mb-0" style={{ color: 'rgba(3, 12, 4, 0.51)', marginLeft: '-280px' }}>Municipalidad de Tibás</p>
+                <Navbar.Brand style={{ marginLeft: '-100px' }}>
+                    <img width={100} height={100} src="icons/logo.png" alt="Logo" />
+                    <p className="texto1 mb-0" style={{ color: 'rgba(3, 12, 4, 0.51)', marginLeft: '-30px' }}>Municipalidad de Tibás</p>
                 </Navbar.Brand>
 
                 <Nav className="mx-auto flex-column align-items-center">
@@ -52,25 +52,23 @@ const Header = () => {
                             </div>
                         </NavDropdown>
 
-
                         <div className="mx-2" style={{ cursor: 'pointer', marginTop: '37px' }}>
                             <span onClick={() => window.location.href = '/actas'}>
                                 <span className="nav-link-text">Actas</span>
                             </span>
-
                         </div>
                     </div>
                 </Nav>
 
                 <Nav>
-                    <Nav.Link href="/account">
-                        <img width={100} height={100} src="/icons/account.png" alt="Perfil" style={{ marginRight: '100px' }} />
+                    <Nav.Link href="/account" style={{ marginRight: '-200px' }}>
+                        <img width={100} height={100} src="/icons/account.png" alt="Perfil" />
                         <p className="texto1 mb-0" style={{ color: 'rgba(3, 12, 4, 0.51)', marginLeft: '30px' }}>Perfil</p>
                     </Nav.Link>
                 </Nav>
-
             </Container>
         </Navbar>
+
     );
 }
 export default Header;
