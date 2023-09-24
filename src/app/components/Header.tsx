@@ -11,7 +11,7 @@ const Header = () => {
     return (
         <Navbar style={grayBackground} variant="dark" expand="lg">
             <Container>
-                <Navbar.Brand style={{ marginLeft: '-100px' }}>
+                <Navbar.Brand style={{ marginLeft: '-50px' }}>
                     <img width={100} height={100} src="icons/logo.png" alt="Logo" />
                     <p className="texto1 mb-0" style={{ color: 'rgba(3, 12, 4, 0.51)', marginLeft: '-30px' }}>Municipalidad de Tibás</p>
                 </Navbar.Brand>

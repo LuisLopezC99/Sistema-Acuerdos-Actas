@@ -1,11 +1,16 @@
-.caja {
-  width: 100%; /* Ancho del contenedor al 100% */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px; /* Añade un poco de espacio alrededor */
-  background-color: rgba(12, 12, 12, 0.12); /* Color de fondo que desees */
+/* tabla-personalizada.css */
+.mi-tabla {
+  border-collapse: collapse; /* Combina los bordes de las celdas adyacentes */
+  width: 100%; /* Ancho de la tabla, ajusta según tus necesidades */
+  border: 2px solid rgb(20, 19, 19); /* Estilo del borde de la tabla */
 }
+
+.mi-tabla th, .mi-tabla td {
+  border: 1px solid rgb(14, 12, 12); /* Estilo del borde de las celdas */
+  padding: 8px; /* Espaciado interno de las celdas, ajusta según tus necesidades */
+  text-align: left; /* Alineación del texto en las celdas, ajusta según tus necesidades */
+}
+
 
 .logo {
   display: flex;
@@ -64,3 +69,138 @@ nav a:not(:last-child) {
   cursor: pointer; /* Cambiar el cursor al pasar el mouse */
 }
 
+.gray-cell {
+  background-color: #7a1a1a; /* Color gris que desees */
+  color: #fff; /* Color de texto para que sea legible */
+  /* Otros estilos si es necesario */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.content-container2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  /* Altura para centrar la tabla más abajo */
+}
+
+.content-container {
+  display: grid;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  height: 80vh;
+  padding: 10px;
+  /* Altura para centrar la tabla más abajo */
+
+}
+
+
+.right-container {
+  flex: 1;
+  background-color: white;
+  padding: 0.1px;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.defaultImage {
+  max-width: 50%;
+  max-height: 50%;
+}
+#navbar {
+  width: 200px;
+  background-color: rgb(128, 26, 0);
+  float: left;
+  height: 100%;
+  color: white;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  /* Centrar horizontalmente */
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+#navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#navbar li {
+  padding: 10px;
+  text-align: center;
+}
+
+#content {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #9c9c9c;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.left-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+ 
+ 
+  overflow-y: auto;
+}
+
+.scrollable-table-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.stacked-progress {
+  width: 100%;
+  height: 20px;
+  background-color: #ccc;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  position: absolute;
+  background-color: #3498db;
+}
+
+.bar1 {
+  background-color: #e74c3c;
+}
+
+.bar2 {
+  background-color: #2ecc71;
+}
+
+.bar3 {
+  background-color: #f39c12;
+}
