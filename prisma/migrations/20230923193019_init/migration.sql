@@ -19,7 +19,7 @@ CREATE TABLE `tab_agreement` (
     `session_id` INTEGER NOT NULL,
     `agreement_state` VARCHAR(191) NOT NULL,
     `agreement_id` VARCHAR(191) NOT NULL,
-
+    `description` varchar(191)  NOT NULL,
     UNIQUE INDEX `tab_agreement_agreement_id_key`(`agreement_id`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

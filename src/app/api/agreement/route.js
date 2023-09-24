@@ -8,4 +8,7 @@ export const GET = async ()  =>{
     return NextResponse.json(tab_agreement)
 }
 
+export const POST = async (request) =>{
+    
+}
 
