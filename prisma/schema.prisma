@@ -12,22 +12,22 @@ datasource db {
 
 model tab_session{
   id   Int                   @id @default(autoincrement())
-  session_date DateTime      @default(now())
+  date DateTime      @default(now()) @map("session_date")
   report String              @unique
-  session_type String
-  facebook_link String
+  type String        @map("session_type") 
+  facebookUrl String       @map("facebook_link") 
   agreements tab_agreement[]
 }
 
 model tab_agreement {
   id   Int                   @id @default(autoincrement())
-  agreement_topic String
+  topic String               @map("agreement_topic")
   description String
-  asigned_to String
-  deadline DateTime           @default(now())
-  session    tab_session @relation(fields: [session_id], references: [id])
-  session_id Int
-  agreement_state String        
-  agreement_id String           @unique         
+  asignedTo String          @map("asigned_to")
+  deadline DateTime         @default(now())
+  session                   tab_session @relation(fields: [sessionId], references: [id])
+  sessionId Int             @map("session_id")
+  state String              @map("agreement_state")       
+  agreementId String        @unique @map("agreement_id")        
 }
 
