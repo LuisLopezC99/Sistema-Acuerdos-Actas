@@ -1,0 +1,53 @@
+
+.caja {
+    width: 100%; /* Ancho del contenedor al 100% */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px; /* Añade un poco de espacio alrededor */
+    background-color: rgba(12, 12, 12, 0.12); /* Color de fondo que desees */
+  }
+  
+  .logo {
+    display: flex;
+    align-items: flex-start; /* Alinea el logo en la parte superior */
+  }
+  
+  .texto1 {
+    font-size: 17px; /* Tamaño del texto */
+    color: #030c0457;
+    text-align: left;
+  }
+  
+  .texto2 {
+    font-size: 40px; /* Tamaño del texto */
+    color: #34A853; /* Color de texto personalizado */
+    text-align: center; /* Alineación horizontal del texto */
+}
+
+.caja1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding: 50px;
+  }
+  
+  .caja1 p, .caja1 nav {
+    margin-bottom: 20px; /* Agrega margen inferior a los elementos que deseas separar */
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #030C04;
+    font-size: 15px;
+    margin: 8px 8px 8px 0;
+    padding: 10px 10px;
+    display: inline-block;
+  }
+  
+  nav a:not(:last-child) {
+    margin-right: 20px; /* Agrega margen derecho a todos los elementos, excepto al último */
+  }
+  
