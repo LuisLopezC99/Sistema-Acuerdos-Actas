@@ -2,7 +2,7 @@ import React from 'react';
 
 const TableAgreement: React.FC = () => {
   return (
-    <div className="row justify-content-center" style={{ padding: '70px' }}>
+    <div className="row justify-content-center" style={{ padding: '150px' }}>
       <div className="col text-center"> {/* Agregamos la clase 'text-center' para centrar el contenido */}
         <h4 style={{color : 'gray'}} >Acuerdos en Trámite</h4>
         <div className="scrollable-table-container">
