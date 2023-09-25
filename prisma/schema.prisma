@@ -28,6 +28,7 @@ model tab_agreement {
   session                   tab_session @relation(fields: [sessionId], references: [id])
   sessionId Int             @map("session_id")
   state String              @map("agreement_state")       
-  agreementId String        @unique @map("agreement_id")        
+  agreementId String        @unique @map("agreement_id")
+
 }
 

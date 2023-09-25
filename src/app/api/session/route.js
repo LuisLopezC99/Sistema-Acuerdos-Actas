@@ -10,6 +10,7 @@ export const GET = async ()  =>{
 
 
 export const POST = async (request) =>{
+    console.log(request)
     const {date, report, type, facebookUrl} = await request.json()
     const newInsert = await prisma.tab_session.create({
         data: {
