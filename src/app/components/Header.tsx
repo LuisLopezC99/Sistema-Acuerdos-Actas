@@ -25,8 +25,14 @@ const Header = () => {
         { label: "Cumplidos", href: "/acuerdos/cumplidos" },
     ];
 
+    const headerStyles = {
+        backgroundColor: "#your-header-background-color", // Cambia el color de fondo del header
+        color: "#your-header-text-color", // Cambia el color del texto del header
+        // Agrega otros estilos según tus necesidades
+    };
+
     return (
-        <Navbar className="gray-background" variant="dark" expand="lg">
+        <Navbar className="gray-background" variant="dark" expand="lg" style={headerStyles}>
             <Container fluid>
                 <Navbar.Brand>
                     <img width={62} height={84} style={{ fontSize: '18px', marginLeft: '100px', marginTop: '5px' }} src="icons/logo.png" alt="Logo" />
@@ -43,12 +49,20 @@ const Header = () => {
                                 Sistema de Acuerdos y Actas Municipales
                             </p>
                         </div>
+
                         <div className="d-flex justify-content-center">
+
+                            <div className="mx-2">
+                                <Link href="/mis-acuerdos">
+                                    <span className="nav-link-text">Mis Acuerdos</span>
+                                </Link>
+                            </div>
                             <div className="mx-2">
                                 <Link href="/sesiones">
                                     <span className="nav-link-text">Sesiones</span>
                                 </Link>
                             </div>
+
                             <div
                                 className="mx-2"
                                 onMouseEnter={toggleAcuerdosMenu}
@@ -69,29 +83,28 @@ const Header = () => {
                                         onMouseEnter={toggleEnTramiteMenu}
                                         onMouseLeave={toggleEnTramiteMenu}
                                         style={{ position: 'relative' }}
+                                        className="submenu-parent"
                                     >
                                         <span className="nav-link-text">En trámite</span>
                                         {showEnTramiteMenu && (
-                                            <div className="custom-dropdown-menu">
-                                                <div className="submenu-items">
-                                                    <span className="nav-link-text">Nuevos</span>
-                                                    <span className="nav-link-text">Por vencer</span>
+                                            <div className="custom-dropdown-menu submenu-top">
+                                                <div className="submenu-items" style={{ justifyContent: 'flex-start', flexDirection: 'column' }}>
+                                                    <Link href="/nuevos"><span className="nav-link-text">Nuevos</span></Link>
+                                                    <Link href="/porVencer"><span className="nav-link-text">Por vencer</span></Link>
                                                 </div>
                                             </div>
                                         )}
                                     </NavDropdown.Item>
-
-
-
                                 </NavDropdown>
                             </div>
                             <div className="mx-2">
-                                <Link href="/actas">
-                                    <span className="nav-link-text">Actas</span>
+                                <Link href="/busquedas">
+                                    <span className="nav-link-text">Busquedas</span>
                                 </Link>
                             </div>
                         </div>
                     </Nav>
+
 
                     <Nav>
                         <Link href="/account" style={{ fontSize: '18px', marginLeft: '100px', marginTop: '5px' }}>
@@ -101,6 +114,7 @@ const Header = () => {
                             </span>
                         </Link>
                     </Nav>
+
                 </Navbar.Collapse>
             </Container>
         </Navbar>
