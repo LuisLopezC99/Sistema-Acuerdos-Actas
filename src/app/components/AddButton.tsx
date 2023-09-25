@@ -13,7 +13,7 @@ const AddButton: React.FC = () => {
   };
 
   return (
-    <div className="d-flex justify-content-end mb-3">
+    <div style={{ position: 'absolute', top: '210px', right: '150px' }}>
       <button className="btn btn-primary" onClick={handleModalOpen}>
         Crear Nuevo
       </button>
