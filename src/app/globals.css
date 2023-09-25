@@ -204,3 +204,43 @@ th {
 .bar3 {
   background-color: #f39c12;
 }
+/* global.css */
+
+/* Gray background styles */
+.gray-background {
+  background-color: rgba(230, 230, 230, 1);
+  border: 1px solid #000;
+}
+
+/* Navbar brand text */
+.navbar-brand-text {
+  color: rgba(3, 12, 4, 0.51);
+}
+
+/* Header text */
+.header-text {
+  color: #34A853;
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+/* Navbar link text */
+.nav-link-text {
+  cursor: pointer;
+  margin-top: 37px;
+}
+
+/* Custom dropdown menu */
+.custom-dropdown-menu {
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 100%;
+  background-color: #ffffff;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #edede9;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  padding: 10px;
+}
