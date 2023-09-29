@@ -19,7 +19,7 @@
 
 .texto1 {
   font-size: 17px; /* Tamaño del texto */
-  color: #030c0457;
+  color: #030c04fd;
   text-align: left;
 }
 
@@ -227,6 +227,7 @@ th {
 /* Navbar link text */
 .nav-link-text {
   cursor: pointer;
+  color:#000;
   margin-top: 37px;
 }
 
@@ -244,3 +245,57 @@ th {
   cursor: pointer;
   padding: 10px;
 }
+
+.submenu-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 5px;
+}
+
+.submenu-items .nav-link-text {
+  margin: 2px 0;
+}
+
+.custom-search-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.custom-search-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.custom-search-input {
+  font-size: 14px; /* Ajusta el tamaño de fuente del input según tus preferencias */
+  padding: 6px 10px; /* Ajusta el espaciado interno del input según tus preferencias */
+  width: 180px; /* Ajusta el ancho del input según tus preferencias */
+}
+
+.custom-footer-text {
+  margin-left: auto;
+  color: #888; /* Cambia el color del texto */
+  /* Agrega otros estilos según tus preferencias */
+}
+
+/* Aumenta la especificidad para que tenga prioridad sobre Bootstrap */
+/* Define el color amarillo personalizado */
+.btn.btn-amarillo {
+  background-color: #E5D22D;
+  border-color: #E5D22D;
+  color: #000; /* Color de texto en contraste */
+}
+
+.btn.btn-amarillo:hover {
+  background-color: #FFD700; /* Cambia el color al pasar el mouse */
+  border-color: #FFD700;
+  color: #000;
+}
+
+
+

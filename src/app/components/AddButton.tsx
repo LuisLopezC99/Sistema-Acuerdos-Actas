@@ -1,3 +1,4 @@
+import { yellow } from 'colors';
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
@@ -13,14 +14,15 @@ const AddButton: React.FC = () => {
   };
 
   return (
-    <div className="d-flex justify-content-end mb-3">
-      <button className="btn btn-primary" onClick={handleModalOpen}>
-        Crear Nuevo
-      </button>
+    <div style={{ position: 'absolute', top: '210px', right: '150px' }}>
+      <button className="btn btn-amarillo" onClick={handleModalOpen}>
+  Crear Nuevo
+</button>
+
 
       <Modal show={showModal} onHide={handleModalClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Crear Nuevo</Modal.Title>
+          <Modal.Title >Crear Nuevo</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
