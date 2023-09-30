@@ -13,13 +13,14 @@ interface Agreement {
 
 interface TableAgreementProps {
   agreements: Agreement[];
+  title: string; 
 }
 
-const TableAgreement: React.FC<TableAgreementProps> = ({ agreements }) => {
+const TableAgreement: React.FC<TableAgreementProps> = ({ agreements,title }) => {
   return (
     <div style={{ padding: '100px' }}>
       <div className="col text-center">
-        <h4 style={{ color: 'gray' }}>Acuerdos en Trámite</h4>
+      <h4 style={{ color: 'gray' }}>Acuerdos {title}</h4>
         <div className="scrollable-table-container">
           <table className="mi-tabla">
             <thead className="bg-light">
@@ -37,9 +38,9 @@ const TableAgreement: React.FC<TableAgreementProps> = ({ agreements }) => {
             <tbody>
               {agreements.map((agreement, index) => (
                 <tr key={index}>
-                  <td>{agreement.topic}</td>
+                  <td>{agreement.agreementId}</td>
                   <td>{agreement.sessionId}</td>
-                  <td>{agreement.description}</td>
+                  <td>{agreement.topic}</td>
                   <td>{agreement.asignedTo}</td>
                   <td>{agreement.deadline}</td>
                   <td>{agreement.deadline}</td>

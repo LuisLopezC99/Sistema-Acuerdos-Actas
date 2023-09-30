@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import TableAgreement from './TableAgre'; // Importa el componente TableAgreement
 
 interface GetTableAgreeProps {
-  filter: string; // Declara la propiedad filter como string
+  filter: string; // Propiedad filter como string
+  title: string; // Nueva propiedad title como string
 }
 
-function GetTableAgree({ filter }: GetTableAgreeProps) {
+function GetTableAgree({ filter, title }: GetTableAgreeProps) {
   const [agreements, setAgreements] = useState([]); // Cambia el nombre de la variable a 'agreements'
 
   useEffect(() => {
@@ -22,8 +23,8 @@ function GetTableAgree({ filter }: GetTableAgreeProps) {
 
   return (
     <div>
-      {/* Renderiza TableAgreement y pasa los datos como prop 'agreements' */}
-      <TableAgreement agreements={agreements} />
+      {/* Renderiza TableAgreement y pasa los datos como prop 'agreements' y el título como 'title' */}
+      <TableAgreement agreements={agreements} title={title} />
     </div>
   );
 }
