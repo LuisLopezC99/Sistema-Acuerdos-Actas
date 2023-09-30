@@ -16,7 +16,7 @@ const TableAgreement: React.FC = () => {
                 <th>Fecha Creación</th>
                 <th>Fecha de Vencimiento</th>
                 <th>Estado</th>
-                <th>Editar</th>
+                <th>Acuerdo</th>
               </tr>
             </thead>
             <tbody>
