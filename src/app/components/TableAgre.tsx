@@ -1,10 +1,25 @@
 import React from 'react';
 
-const TableAgreement: React.FC = () => {
+interface Agreement {
+  id: number; // Cambia el tipo si es necesario
+  topic: string;
+  description: string;
+  asignedTo: string;
+  deadline: string;
+  sessionId: number; // Cambia el tipo si es necesario
+  state: string;
+  agreementId: string; // Cambia el tipo si es necesario
+}
+
+interface TableAgreementProps {
+  agreements: Agreement[];
+}
+
+const TableAgreement: React.FC<TableAgreementProps> = ({ agreements }) => {
   return (
     <div style={{ padding: '100px' }}>
-      <div className="col text-center"> {/* Agregamos la clase 'text-center' para centrar el contenido */}
-        <h4 style={{color : 'gray'}} >Acuerdos en Trámite</h4>
+      <div className="col text-center">
+        <h4 style={{ color: 'gray' }}>Acuerdos en Trámite</h4>
         <div className="scrollable-table-container">
           <table className="mi-tabla">
             <thead className="bg-light">
@@ -20,18 +35,20 @@ const TableAgreement: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>800</td>
-                <td>515</td>
-                <td>285</td>
-                <td>800</td>
-                <td>515</td>
-                <td>285</td>
-                <td>Vencido</td>
-                <td>
-                  <button className="btn btn-amarillo">Editar</button>
-                </td>
-              </tr>
+              {agreements.map((agreement, index) => (
+                <tr key={index}>
+                  <td>{agreement.topic}</td>
+                  <td>{agreement.sessionId}</td>
+                  <td>{agreement.description}</td>
+                  <td>{agreement.asignedTo}</td>
+                  <td>{agreement.deadline}</td>
+                  <td>{agreement.deadline}</td>
+                  <td>{agreement.state}</td>
+                  <td>
+                    <button className="btn btn-amarillo">Editar</button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
