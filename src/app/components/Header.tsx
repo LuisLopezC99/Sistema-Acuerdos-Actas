@@ -52,12 +52,12 @@ const Header: React.FC<HeaderProps> = ({ updateFilter }) => {
             </div>
 
             <div className="d-flex justify-content-center">
-              <div className="mx-2">
+              <div className="mx-2" style={{ fontSize: '15px', marginLeft: '100px', marginTop: '20px' }}>
                 <span className="nav-link-text" onClick={() => handleMenuItemClick('Mis Acuerdos')}>
                   Mis Acuerdos
                 </span>
               </div>
-              <div className="mx-2">
+              <div className="mx-2" style={{ fontSize: '15px', marginLeft: '100px', marginTop: '20px' }}>
                 <span className="nav-link-text" onClick={() => handleMenuItemClick('Sesiones')}>
                   Sesiones
                 </span>
@@ -101,7 +101,7 @@ const Header: React.FC<HeaderProps> = ({ updateFilter }) => {
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>
-              <div className="mx-2">
+              <div className="mx-2" style={{ fontSize: '15px', marginLeft: '100px', marginTop: '20px' }}>
                 <span className="nav-link-text" onClick={() => handleMenuItemClick('Busquedas')}>
                   Busquedas
                 </span>

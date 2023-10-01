@@ -42,8 +42,8 @@ const TableAgreement: React.FC<TableAgreementProps> = ({ agreements,title }) => 
                   <td>{agreement.sessionId}</td>
                   <td>{agreement.topic}</td>
                   <td>{agreement.asignedTo}</td>
-                  <td>{agreement.deadline}</td>
-                  <td>{agreement.deadline}</td>
+                  <td>{agreement.deadline.substring(0,10)}</td>
+                  <td>{agreement.deadline.substring(0,10)}</td>
                   <td>{agreement.state}</td>
                   <td>
                     <button className="btn btn-amarillo">Editar</button>
