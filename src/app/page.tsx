@@ -5,20 +5,27 @@ import GetTableAgree from './components/GetTableAgre';
 import AddButton from './components/AddButton';
 import SearchButton from './components/SearchButton';
 import Footer from './components/Footer';
-
+import GetTableSession from './components/GetTableSession';
+import AddButton2 from './components/AddButton2';
 export default function Home() {
   const [filter, setFilter] = useState('Por vencer');
 
   const updateFilter = (newFilter:string) => {
     setFilter(newFilter);
   };
-
-  const title = (filter: string) => {
-    return filter === 'Nuevo'
-      ? `En trámite ${filter}s`
-      : filter === 'Por vencer'
-      ? `En trámite ${filter}`
-      : `${filter}s`;
+  const renderTable = () => {
+    if (filter === 'Sesiones') {
+      return <GetTableSession title={filter} />;
+    } else {
+      return <GetTableAgree filter={filter} title={filter} />;
+    }
+  };
+  const renderAddButton = () => {
+    if (filter === 'Sesiones') {
+      return <AddButton2 />;
+    } else {
+      return <AddButton />;
+    }
   };
   
   
@@ -26,9 +33,9 @@ export default function Home() {
   return (
     <div>
       <Header updateFilter={updateFilter} />
-      <AddButton />
+      {renderAddButton()}
       <SearchButton />
-      <GetTableAgree filter={filter} title={title(filter)} />
+      {renderTable()}
       <div>
         <Footer />
       </div>

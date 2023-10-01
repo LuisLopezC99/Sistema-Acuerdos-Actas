@@ -1,14 +1,14 @@
 import React from 'react';
 
 interface Agreement {
-  id: number; // Cambia el tipo si es necesario
+  id: number; 
   topic: string;
   description: string;
   asignedTo: string;
   deadline: string;
-  sessionId: number; // Cambia el tipo si es necesario
+  sessionId: number;
   state: string;
-  agreementId: string; // Cambia el tipo si es necesario
+  agreementId: string; 
 }
 
 interface TableAgreementProps {
