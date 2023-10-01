@@ -5,8 +5,13 @@ import { readFilterSession } from "../../../data/session/crud";
 
 
 const GET = async (_:any, { params } : {params : Params}) => {
-    const sessions = await readFilterSession(params.filter)
-    return NextResponse.json(sessions)
+    try{
+        
+        const sessions = await readFilterSession(params.filter)
+        return NextResponse.json(sessions)
+    }catch(error){
+        return NextResponse.json({ error: "Hubo un error al procesar la solicitud" }, { status: 500 });
+    }
 }
 
 export default GET
