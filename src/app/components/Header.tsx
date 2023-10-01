@@ -89,10 +89,10 @@ const Header: React.FC<HeaderProps> = ({ updateFilter }) => {
                     {showEnTramiteMenu && (
                       <div className="custom-dropdown-menu submenu-top">
                         <div className="submenu-items" style={{ justifyContent: 'flex-start', flexDirection: 'column' }}>
-                          <span className="nav-link-text" onClick={() => handleMenuItemClick('Nuevo')}>
+                          <span className="nav-link-text" onClick={() => handleMenuItemClick('nuevo')}>
                             Nuevos
                           </span>
-                          <span className="nav-link-text" onClick={() => handleMenuItemClick('Por vencer')}>
+                          <span className="nav-link-text" onClick={() => handleMenuItemClick('por vencer')}>
                             Por vencer
                           </span>
                         </div>

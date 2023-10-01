@@ -8,26 +8,23 @@ import Footer from './components/Footer';
 import GetTableSession from './components/GetTableSession';
 import AddButton2 from './components/AddButton2';
 export default function Home() {
-  const [filter, setFilter] = useState('Por vencer');
+  const [filter, setFilter] = useState('por vencer');
 
   const updateFilter = (newFilter:string) => {
     setFilter(newFilter);
   };
-  const renderTable = () => {
-    if (filter === 'Sesiones') {
-      return <GetTableSession title={filter} />;
-    } else {
-      return <GetTableAgree filter={filter} title={filter} />;
-    }
-  };
-  const renderAddButton = () => {
-    if (filter === 'Sesiones') {
-      return <AddButton2 />;
-    } else {
-      return <AddButton />;
-    }
-  };
-  
+  const getTitle = (filter:string) => 
+  filter === 'por vencer'? `en tramite ${filter}`
+  : filter === 'nuevo'? `en tramite ${filter}s`
+  : filter === 'Redirigido' || filter === 'Vencido' || filter === 'Cumplido'? `${filter}s`
+  : filter;
+
+  const renderTable = () =>
+  filter === 'Sesiones' ? (<GetTableSession title={filter} />) 
+  :(<GetTableAgree filter={filter} title={getTitle(filter)} />);
+  const renderAddButton = () =>
+  filter === 'Sesiones' ? <AddButton2 /> : <AddButton />;
+
   
 
   return (
