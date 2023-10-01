@@ -24,13 +24,21 @@ export default function Home() {
   
 
   return (
-    <div>
+    <div >
       <Header updateFilter={updateFilter} />
-      <AddButton />
-      <SearchButton />
-      <GetTableAgree filter={filter} title={title(filter)} />
-      <div>
-        <Footer />
+      <div className="d-flex justify-content-between align-items-center my-3">
+        <AddButton />
+        <SearchButton />
+      </div>
+      <div className="row">
+        <div className="col-lg-12">
+          <GetTableAgree filter={filter} title={title(filter)} />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-lg-12">
+          <Footer />
+        </div>
       </div>
     </div>
   );
