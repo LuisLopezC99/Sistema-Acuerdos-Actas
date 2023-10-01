@@ -33,7 +33,7 @@ const TableSession: React.FC<TableSessionProps> = ({ sessions, title }) => {
               {sessions.map((session, index) => (
                 <tr key={index}>
                   <td>{session.id}</td>
-                  <td>{session.date}</td>
+                  <td>{session.date.substring(0,10)}</td>
                   <td>{session.type}</td>
                   <td>
                     <a href={session.facebookUrl} target="_blank" rel="noopener noreferrer">

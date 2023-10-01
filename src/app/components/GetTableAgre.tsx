@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import TableAgreement from './TableAgre';
 
 interface GetTableAgreeProps {
@@ -7,10 +7,11 @@ interface GetTableAgreeProps {
 }
 function GetTableAgree({ filter, title }: GetTableAgreeProps) {
   const [agreements, setAgreements] = useState([]); 
+  const apiUrl = title === 'Mis Acuerdos' ? '/api/agreement' : `/api/agreement/${filter}`;
 
   useEffect(() => {
    
-    fetch(`/api/agreement/${filter}`)
+    fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
         setAgreements(data);
@@ -18,7 +19,7 @@ function GetTableAgree({ filter, title }: GetTableAgreeProps) {
       .catch((error) => {
         console.error('Error al obtener datos:', error);
       });
-  }, [filter]); 
+  }, [filter]);
 
   return (
     <div>
