@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button, Form, Container } from 'react-bootstrap';
 import { POST } from '../api/agreement/route';
 
 
@@ -57,12 +57,12 @@ const AddButton: React.FC = () => {
   };
 
   return (
-    <div style={{ position: 'absolute', top: '210px', right: '150px' }}>
-      <button className="btn btn-amarillo" onClick={handleModalOpen}>
+    <Container className="d-flex justify-content-end mt-3">
+      <Button style={{ backgroundColor: '#E5D22D', borderColor: '#E5D22D', color: 'black' }} onClick={handleModalOpen}>
         Crear Nuevo
-      </button>
+      </Button>
 
-      <Modal  show={showModal} onHide={handleModalClose} centered>
+      <Modal show={showModal} onHide={handleModalClose} centered>
         <Modal.Header closeButton style={{ height: '45px', padding: '10px', backgroundColor: '#D9D9D9', color: 'black' }}>
           <Modal.Title>Crear Acuerdo</Modal.Title>
         </Modal.Header>
@@ -90,8 +90,8 @@ const AddButton: React.FC = () => {
                     placeholder="Ingrese tema"
                     style={{ backgroundColor: '#EFF8EE', color: 'black' }}
                     name="topic"
-                    value={formValues.topic}  
-                  onChange={handleInputChange}
+                    value={formValues.topic}
+                    onChange={handleInputChange}
                   />
                 </Form.Group>
               </div>
@@ -186,7 +186,10 @@ const AddButton: React.FC = () => {
           Cancelar
         </Button>
       </Modal>
-    </div>
+
+    </Container>
+
+
   );
 };
 

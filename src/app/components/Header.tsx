@@ -52,12 +52,12 @@ const Header: React.FC<HeaderProps> = ({ updateFilter }) => {
             </div>
 
             <div className="d-flex justify-content-center">
-              <div className="mx-2" style={{ fontSize: '15px', marginLeft: '100px', marginTop: '20px' }}>
+              <div className="mx-2" style={{ fontSize: '15px', marginLeft: '100px', marginTop: '18px' }}>
                 <span className="nav-link-text" onClick={() => handleMenuItemClick('Mis Acuerdos')}>
                   Mis Acuerdos
                 </span>
               </div>
-              <div className="mx-2" style={{ fontSize: '15px', marginLeft: '100px', marginTop: '20px' }}>
+              <div className="mx-2" style={{ fontSize: '15px', marginLeft: '100px', marginTop: '18px' }}>
                 <span className="nav-link-text" onClick={() => handleMenuItemClick('Sesiones')}>
                   Sesiones
                 </span>
@@ -88,20 +88,22 @@ const Header: React.FC<HeaderProps> = ({ updateFilter }) => {
                     <span className="nav-link-text">En trámite</span>
                     {showEnTramiteMenu && (
                       <div className="custom-dropdown-menu submenu-top">
-                        <div className="submenu-items" style={{ justifyContent: 'flex-start', flexDirection: 'column' }}>
-                          <span className="nav-link-text" onClick={() => handleMenuItemClick('nuevo')}>
+
+                        <div className="submenu-items">
+                          <span className="nav-link-text" onClick={() => handleMenuItemClick('Nuevo')}>
                             Nuevos
                           </span>
-                          <span className="nav-link-text" onClick={() => handleMenuItemClick('por vencer')}>
+                          <span className="nav-link-text" onClick={() => handleMenuItemClick('Por vencer')}>
                             Por vencer
                           </span>
                         </div>
+                        
                       </div>
                     )}
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>
-              <div className="mx-2" style={{ fontSize: '15px', marginLeft: '100px', marginTop: '20px' }}>
+              <div className="mx-2" style={{ fontSize: '15px', marginLeft: '100px', marginTop: '18px' }}>
                 <span className="nav-link-text" onClick={() => handleMenuItemClick('Busquedas')}>
                   Busquedas
                 </span>

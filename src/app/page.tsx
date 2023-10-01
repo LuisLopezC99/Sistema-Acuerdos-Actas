@@ -1,44 +1,45 @@
 "use client";
-// Home.tsx
 import React, { useState } from 'react';
 import Header from '../app/components/Header';
 import GetTableAgree from './components/GetTableAgre';
 import AddButton from './components/AddButton';
 import SearchButton from './components/SearchButton';
 import Footer from './components/Footer';
-import GetTableSession from './components/GetTableSession';
-import AddButton2 from './components/AddButton2';
 
 export default function Home() {
-  const [filter, setFilter] = useState('Mis Acuerdos');
+  const [filter, setFilter] = useState('Por vencer');
 
-  const updateFilter = (newFilter: string) => {
+  const updateFilter = (newFilter:string) => {
     setFilter(newFilter);
   };
 
-  const getTitle = (filter: string) =>
-    filter === 'por vencer' ? `en tramite ${filter}` :
-    filter === 'nuevo' ? `en tramite ${filter}s` :
-    filter === 'Redirigido' || filter === 'Vencido' || filter === 'Cumplido' ? `${filter}s` : filter;
-
-  const renderTable = () =>
-    filter === 'Sesiones' ? (<GetTableSession title={filter} />) :
-    (<GetTableAgree filter={filter} title={getTitle(filter)} />);
-
-  const renderAddButton = () =>
-    filter === 'Sesiones' ? <AddButton2 updateFilter={updateFilter} /> : <AddButton />;
+  const title = (filter: string) => {
+    return filter === 'Nuevo'
+      ? `En trámite ${filter}s`
+      : filter === 'Por vencer'
+      ? `En trámite ${filter}`
+      : `${filter}s`;
+  };
+  
+  
 
   return (
-    <div>
+    <div >
       <Header updateFilter={updateFilter} />
-      {renderAddButton()}
-      <SearchButton />
-      {renderTable()}
-      <div>
-        <Footer />
+      <div className="d-flex justify-content-between align-items-center my-3">
+        <AddButton />
+        <SearchButton />
+      </div>
+      <div className="row">
+        <div className="col-lg-12">
+          <GetTableAgree filter={filter} title={title(filter)} />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-lg-12">
+          <Footer />
+        </div>
       </div>
     </div>
   );
 }
-
-

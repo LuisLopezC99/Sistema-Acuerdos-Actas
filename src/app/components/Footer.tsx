@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className="bg-white text-white fixed-bottom">
             <Container>
-                <div className="d-flex justify-content-between align-items-center py-3">
+                <div className="d-flex justify-content-between align-items-center py-0">
                     <p className="custom-footer-text">&copy; 2023 Sistema de Acuerdos y Actas Municipales. Todos los derechos reservados</p>
                 </div>
             </Container>
