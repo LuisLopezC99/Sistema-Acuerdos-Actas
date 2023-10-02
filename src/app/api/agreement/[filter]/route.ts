@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import prisma from "../../../../libs/client"
 import { filterAgreement } from "@/app/data/agreement/crud";
 
 export interface Params {
@@ -7,7 +6,7 @@ export interface Params {
 }
 
 
-const GET = async (_: NextRequest, { params }: { params: Params }) => {
+export const GET = async (_: NextRequest, { params }: { params: Params }) => {
     try{
         
         const agreements = await filterAgreement(params.filter)

@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TableAgreement from './TableAgre';
 
 interface GetTableAgreeProps {
@@ -11,12 +11,7 @@ function GetTableAgree({ filter, title }: GetTableAgreeProps) {
 
   useEffect(() => {
    
-    fetch(apiUrl, {
-      method: 'GET',
-      headers: {
-        'Access-Control-Allow-Headers': '*',
-      }
-    })
+    fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
         setAgreements(data);

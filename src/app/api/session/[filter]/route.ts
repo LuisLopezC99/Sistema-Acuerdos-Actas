@@ -1,10 +1,9 @@
 import { NextResponse, NextRequest } from "next/server";
-import prisma from "../../../../libs/client"
 import { Params } from "../../agreement/[filter]/route";
 import { readFilterSession } from "../../../data/session/crud";
 
 
-const GET = async (_: NextRequest, { params } : {params : Params}) => {
+export const GET = async (_: NextRequest, { params } : {params : Params}) => {
     try{
         
         const sessions = await readFilterSession(params.filter)
