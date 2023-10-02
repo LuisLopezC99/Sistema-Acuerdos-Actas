@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form, Container } from 'react-bootstrap';
+import Swal from 'sweetalert2';
 
 interface AddButton2Props {
   updateFilter: (newFilter: string) => void;
@@ -7,7 +8,6 @@ interface AddButton2Props {
 
 const AddButton: React.FC<AddButton2Props> = ({ updateFilter }) => {
   const [showModal, setShowModal] = useState(false);
-  const [showAnimation, setShowAnimation] = useState(false);
   const [formValues, setFormValues] = useState({
     date: '',
     report: '',
@@ -53,13 +53,18 @@ const AddButton: React.FC<AddButton2Props> = ({ updateFilter }) => {
       });
 
       if (response.ok) {
-        setShowAnimation(true);
+        Swal.fire(
+          'Se ha guardado!',
+          'Hacer click en OK!',
+          'success'
+        )
+
         console.log('Solicitud exitosa');
 
-        setTimeout(() => {
         
-          handleModalClose();
-        }, 2000);
+        
+        handleModalClose();
+        
         
         updateFilter('Sesiones');
       } else {
@@ -160,9 +165,6 @@ const AddButton: React.FC<AddButton2Props> = ({ updateFilter }) => {
           <Button variant="primary" onClick={handleSave}>
             Guardar
           </Button>
-          {showAnimation && (
-            <img src="/icons/check.gif" alt="Animación" />
-          )}
           <Button variant="secondary" onClick={handleModalClose}>
             Cancelar
           </Button>

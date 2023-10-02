@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import { Modal, Button, Form, Container } from 'react-bootstrap';
 import { POST } from '../api/agreement/route';
+import Swal from 'sweetalert2';
+
+interface AddButton2Props {
+  updateFilter: (newFilter: string) => void;
+}
 
 
-
-const AddButton: React.FC = () => {
+const AddButton: React.FC <AddButton2Props>= ({updateFilter}) => {
   // Creación de los hooks
   const [showModal, setShowModal] = useState(false);
   const [showAnimation, setShowAnimation] = useState(false);
@@ -37,38 +41,40 @@ const AddButton: React.FC = () => {
   const handleSave = async () => {
     
     const { topic, description, asignedTo, state, agreementId } = formValues
-    const selectedDate = new Date(formValues.deadline);
-    const sessionId = Number(formValues.sessionId)
-    const deadline = selectedDate.toISOString();
-    const session = { topic, description, asignedTo, deadline, sessionId, state, agreementId }
+
     try {
+      const selectedDate = new Date(formValues.deadline);
+      const sessionId = Number(formValues.sessionId)
+      const deadline = selectedDate.toISOString();
+      const session = { topic, description, asignedTo, deadline, sessionId, state, agreementId 
+    };
+
       const response = await fetch(`http://localhost:3000/api/agreement`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(session)
-      })
-      const data = await response.json();
-      console.log(data);
+        body: JSON.stringify(session),
+      });
       
-      setShowAnimation(true);
-      
-      setTimeout(() => {
-        
-        setShowModal(false);
-      }, 2000);
+      if(response.ok){
+        Swal.fire(
+          'Se ha guardado!',
+          'Hacer click en OK!',
+          'success'
+        )
 
-      
+        console.log('Solicitud exitosa');        
+        handleModalClose();        
 
-    } catch (error) {
-      console.error("Error recovering: ", error)
-      return ""
-    } finally {
-      
-      
-    }
-  };
+        updateFilter('Acuerdos');
+      } else{
+        console.error('Error en la solicitud');
+      } 
+     } catch (error){
+        console.error('Error en la solicitud', error);
+      }
+    };
 
   return (
     <Container className="d-flex justify-content-end mt-3">
@@ -194,9 +200,6 @@ const AddButton: React.FC = () => {
               <Button variant="primary" onClick={handleSave}>
                 Guardar
               </Button>
-              {showAnimation && (
-                <img src="/icons/check.gif" alt="Animación" />
-              )}
 
               <Button variant="secondary" onClick={handleModalClose}>
                 Cancelar
