@@ -1,21 +1,38 @@
 import { NextRequest, NextResponse } from "next/server";
-import prisma from "../../../libs/client"
 import { readSessions, createSession, updateSession } from "../../data/session/crud";
 
 
 
 export const GET = async ()  =>{
-    const tab_session = await readSessions()
-    return NextResponse.json(tab_session)
+    try{
+
+        const tab_session = await readSessions()
+        return NextResponse.json(tab_session)
+    }catch(error){
+        return NextResponse.json({ error: "Hubo un error al procesar la solicitud" }, { status: 500 });
+    }
 }
 
 
 export const POST = async (request: NextRequest) => {
-    const newInsert = await createSession( await request.json())
-    return NextResponse.json(newInsert)
+    try{
+        const requestData = await request.json();
+        console.log('Datos recibidos:', requestData);
+        const newInsert = await createSession( requestData)
+        
+        return NextResponse.json(newInsert)
+    }catch(error){
+        return NextResponse.json({ error: "Hubo un error al procesar la solicitud" }, { status: 500 });
+    }
 }
 
 export const PUT = async (request: NextRequest) =>{
-    const newUpdate = await updateSession(await request.json())
-    return NextResponse.json(newUpdate)
+    try{
+        
+        const newUpdate = await updateSession(await request.json())
+        return NextResponse.json(newUpdate)
+    }catch(error){
+        return NextResponse.json({ error: "Hubo un error al procesar la solicitud" }, { status: 500 });
+    }
+
 }

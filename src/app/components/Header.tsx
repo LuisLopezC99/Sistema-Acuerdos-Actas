@@ -72,7 +72,7 @@ const Header: React.FC<HeaderProps> = ({ updateFilter }) => {
                   title={<span className="nav-link-text">Acuerdos</span>}
                   id="acuerdos-dropdown"
                 >
-                  {acuerdosItems.map((item, index) => (
+                  {acuerdosItems?.map((item, index) => (
                     <NavDropdown.Item key={index} onClick={() => handleMenuItemClick(item.label)}>
                       <span className="nav-link-text">{item.label}</span>
                     </NavDropdown.Item>

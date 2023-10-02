@@ -12,7 +12,7 @@ datasource db {
 
 model tab_session{
   id   Int                   @id @default(autoincrement())
-  date DateTime      @default(now()) @map("session_date")
+  date DateTime             @map("session_date") @db.Date
   report String              @unique
   type String        @map("session_type") 
   facebookUrl String       @map("facebook_link") 
@@ -24,7 +24,7 @@ model tab_agreement {
   topic String               @map("agreement_topic")
   description String
   asignedTo String          @map("asigned_to")
-  deadline DateTime         @default(now())
+  deadline DateTime         @db.Date
   session                   tab_session @relation(fields: [sessionId], references: [id])
   sessionId Int             @map("session_id")
   state String              @map("agreement_state")       

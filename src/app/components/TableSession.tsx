@@ -30,7 +30,7 @@ const TableSession: React.FC<TableSessionProps> = ({ sessions, title }) => {
               </tr>
             </thead>
             <tbody>
-              {sessions.map((session, index) => (
+              {sessions?.map((session, index) => (
                 <tr key={index}>
                   <td>{session.id}</td>
                   <td>{session.date.substring(0,10)}</td>
