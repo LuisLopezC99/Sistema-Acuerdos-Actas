@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button, Form, Container } from 'react-bootstrap';
 
 interface AddButton2Props {
   updateFilter: (newFilter: string) => void;
@@ -64,11 +64,10 @@ const AddButton: React.FC<AddButton2Props> = ({ updateFilter }) => {
   };
 
   return (
-    <div style={{ position: 'absolute', top: '210px', right: '20px' }}>
-      <button className="btn btn-amarillo" onClick={handleModalOpen}>
+    <Container className="d-flex justify-content-end mt-3">
+      <Button style={{ backgroundColor: '#E5D22D', borderColor: '#E5D22D', color: 'black' }} onClick={handleModalOpen}>
         Crear Nuevo
-      </button>
-
+      </Button>
       <Modal show={showModal} onHide={handleModalClose} centered>
         <Modal.Header closeButton style={{ height: '45px', padding: '10px', backgroundColor: '#D9D9D9', color: 'black' }}>
           <Modal.Title>Crear Sesión</Modal.Title>
@@ -159,7 +158,8 @@ const AddButton: React.FC<AddButton2Props> = ({ updateFilter }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-    </div>
+
+    </Container>
   );
 };
 
