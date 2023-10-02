@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button, Form, Container } from 'react-bootstrap';
 
 interface AddButton2Props {
   updateFilter: (newFilter: string) => void;
@@ -7,6 +7,7 @@ interface AddButton2Props {
 
 const AddButton: React.FC<AddButton2Props> = ({ updateFilter }) => {
   const [showModal, setShowModal] = useState(false);
+  const [showAnimation, setShowAnimation] = useState(false);
   const [formValues, setFormValues] = useState({
     date: '',
     report: '',
@@ -52,8 +53,14 @@ const AddButton: React.FC<AddButton2Props> = ({ updateFilter }) => {
       });
 
       if (response.ok) {
+        setShowAnimation(true);
         console.log('Solicitud exitosa');
-        handleModalClose();
+
+        setTimeout(() => {
+        
+          handleModalClose();
+        }, 2000);
+        
         updateFilter('Sesiones');
       } else {
         console.error('Error en la solicitud');
@@ -64,11 +71,10 @@ const AddButton: React.FC<AddButton2Props> = ({ updateFilter }) => {
   };
 
   return (
-    <div style={{ position: 'absolute', top: '210px', right: '20px' }}>
-      <button className="btn btn-amarillo" onClick={handleModalOpen}>
+    <Container className="d-flex justify-content-end mt-3">
+      <Button style={{ backgroundColor: '#E5D22D', borderColor: '#E5D22D', color: 'black' }} onClick={handleModalOpen}>
         Crear Nuevo
-      </button>
-
+      </Button>
       <Modal show={showModal} onHide={handleModalClose} centered>
         <Modal.Header closeButton style={{ height: '45px', padding: '10px', backgroundColor: '#D9D9D9', color: 'black' }}>
           <Modal.Title>Crear Sesión</Modal.Title>
@@ -154,12 +160,16 @@ const AddButton: React.FC<AddButton2Props> = ({ updateFilter }) => {
           <Button variant="primary" onClick={handleSave}>
             Guardar
           </Button>
+          {showAnimation && (
+            <img src="/icons/check.gif" alt="Animación" />
+          )}
           <Button variant="secondary" onClick={handleModalClose}>
             Cancelar
           </Button>
         </Modal.Footer>
       </Modal>
-    </div>
+
+    </Container>
   );
 };
 
