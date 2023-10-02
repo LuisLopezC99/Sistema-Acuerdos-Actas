@@ -36,7 +36,7 @@ const TableAgreement: React.FC<TableAgreementProps> = ({ agreements,title }) => 
               </tr>
             </thead>
             <tbody>
-              {agreements.map((agreement, index) => (
+              {agreements?.map((agreement, index) => (
                 <tr key={index}>
                   <td>{agreement.agreementId}</td>
                   <td>{agreement.sessionId}</td>
