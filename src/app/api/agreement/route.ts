@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import prisma from "../../../libs/client"
 import { readAgreement, createAgreement, updateAgreement } from "@/app/data/agreement/crud";
 
 export const GET = async ()  =>{
