@@ -31,7 +31,7 @@ export default function Home() {
     if (filter === 'Sesiones') {
       return <AddButton2 updateFilter={updateFilter} />;
     } else {
-      return <AddButton />;
+      return <AddButton updateFilter={updateFilter}/>;
     }
   };
 
@@ -41,9 +41,9 @@ export default function Home() {
       {renderAddButton()}
       <SearchButton />
       {renderTable()}
-      <div>
+      
         <Footer />
-      </div>
+      
     </div>
   );
 }
