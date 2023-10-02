@@ -7,6 +7,7 @@ import { POST } from '../api/agreement/route';
 const AddButton: React.FC = () => {
   // Creación de los hooks
   const [showModal, setShowModal] = useState(false);
+  const [showAnimation, setShowAnimation] = useState(false);
   const [formValues, setFormValues] = useState({
     topic: '',
     description: '',
@@ -34,6 +35,7 @@ const AddButton: React.FC = () => {
   };
 
   const handleSave = async () => {
+    
     const { topic, description, asignedTo, state, agreementId } = formValues
     const selectedDate = new Date(formValues.deadline);
     const sessionId = Number(formValues.sessionId)
@@ -47,12 +49,24 @@ const AddButton: React.FC = () => {
         },
         body: JSON.stringify(session)
       })
-      const data = await response.json()
-      console.log(data)
-      setShowModal(false);
+      const data = await response.json();
+      console.log(data);
+      
+      setShowAnimation(true);
+      
+      setTimeout(() => {
+        
+        setShowModal(false);
+      }, 2000);
+
+      
+
     } catch (error) {
       console.error("Error recovering: ", error)
       return ""
+    } finally {
+      
+      
     }
   };
 
@@ -176,15 +190,21 @@ const AddButton: React.FC = () => {
               </div>
             </Form.Group>
             <Modal.Footer>
+
+              <Button variant="primary" onClick={handleSave}>
+                Guardar
+              </Button>
+              {showAnimation && (
+                <img src="/icons/check.gif" alt="Animación" />
+              )}
+
+              <Button variant="secondary" onClick={handleModalClose}>
+                Cancelar
+              </Button>
+
             </Modal.Footer>
           </Form>
         </Modal.Body>
-        <Button onClick={handleSave} variant="primary">
-          Guardar
-        </Button>
-        <Button variant="secondary" onClick={handleModalClose}>
-          Cancelar
-        </Button>
       </Modal>
 
     </Container>
