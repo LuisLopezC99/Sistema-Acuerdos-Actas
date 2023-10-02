@@ -11,7 +11,12 @@ function GetTableAgree({ filter, title }: GetTableAgreeProps) {
 
   useEffect(() => {
    
-    fetch(apiUrl)
+    fetch(apiUrl, {
+      method: 'GET',
+      headers: {
+        'Access-Control-Allow-Headers': '*',
+      }
+    })
       .then((response) => response.json())
       .then((data) => {
         setAgreements(data);

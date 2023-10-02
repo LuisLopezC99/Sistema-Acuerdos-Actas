@@ -13,5 +13,3 @@ const GET = async (_: NextRequest, { params } : {params : Params}) => {
         return NextResponse.json({ error: "Hubo un error al procesar la solicitud" }, { status: 500 });
     }
 }
-
-export default GET
