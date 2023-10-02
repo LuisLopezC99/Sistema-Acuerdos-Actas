@@ -51,16 +51,15 @@ const AddButton: React.FC = () => {
       })
       const data = await response.json();
       console.log(data);
-      
-      setShowAnimation(true);
-      
-      setTimeout(() => {
+      if (response.ok){
+        setShowAnimation(true);
+        setTimeout(() => {
         
-        setShowModal(false);
-      }, 2000);
-
+          setShowModal(false);
+        }, 2000);
+  
+      }
       
-
     } catch (error) {
       console.error("Error recovering: ", error)
       return ""
