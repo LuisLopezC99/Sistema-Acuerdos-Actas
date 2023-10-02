@@ -7,7 +7,7 @@ export interface Params {
 }
 
 
-export const GET = async (_: any, { params }: { params: Params }) => {
+export const GET = async (_: NextRequest, { params }: { params: Params }) => {
     try{
         
         const agreements = await filterAgreement(params.filter)
