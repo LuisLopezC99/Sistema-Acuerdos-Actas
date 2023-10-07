@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readAgreement, createAgreement, updateAgreement } from "@/app/data/agreement/crud";
-import { AgreementState } from "@/app/logic/agreement/get";
+import { AgreementState } from "@/app/logic/agreement/Get";
 
 export const GET = async () => {
     try {

@@ -71,7 +71,7 @@ const AddButton: React.FC = () => {
 
   return (
     <Container className="d-flex justify-content-end mt-3">
-      <Button style={{ backgroundColor: '#E5D22D', borderColor: '#E5D22D', color: 'black' }} onClick={handleModalOpen}>
+      <Button className='bg-black text-white' style={{ backgroundColor: '#E5D22D', borderColor: '#E5D22D', color: 'black' }} onClick={handleModalOpen}>
         Crear Nuevo
       </Button>
 
